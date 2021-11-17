@@ -1,6 +1,7 @@
 package itc
 
 import edu.gemini.itc.web.servlets.JsonServlet
+import edu.gemini.itc.web.servlets.JsonChartServlet
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletHandler
 
@@ -18,6 +19,7 @@ object Main {
 
     // Set up our handler
     handler.addServletWithMapping(classOf[JsonServlet], "/json")
+    handler.addServletWithMapping(classOf[JsonChartServlet], "/jsonchart")
 
     // And start our server
     server.setHandler(handler)

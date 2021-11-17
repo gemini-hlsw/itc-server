@@ -8,8 +8,8 @@ if [ -z $1 ]; then
 fi
 
 if [ -d $1 ]; then
-  BUNDLE=$(greadlink -f "$1")
-  LIB="$(dirname "$(greadlink -f "$0")")/lib"
+  BUNDLE=$(readlink -f "$1")
+  LIB="$(dirname "$(readlink -f "$0")")/lib"
   mkdir -p "$LIB"
   echo "🔸 Reading from $BUNDLE"
   echo "🔸 Writing to   $LIB"

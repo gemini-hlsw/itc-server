@@ -12,7 +12,7 @@ object Main {
 
     // Let's not connect to the window server
     System.setProperty("java.awt.headless", "true")
-    val hash = BuildInfo.gitDescribedVersion.getOrElse("")
+    val hash = BuildInfo.buildInfoBuildNumber.toString
 
     // Construct a server on `PORT` or 8080 if not provided
     val port    = sys.env.get("PORT").fold(8080)(_.toInt)

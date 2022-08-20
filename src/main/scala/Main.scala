@@ -4,6 +4,7 @@ import edu.gemini.itc.web.servlets.JsonServlet
 import edu.gemini.itc.web.servlets.JsonChartServlet
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletHandler
+import org.eclipse.jetty.servlet.ServletHolder
 
 object Main {
 
@@ -11,6 +12,7 @@ object Main {
 
     // Let's not connect to the window server
     System.setProperty("java.awt.headless", "true")
+    val hash = BuildInfo.gitHeadCommit.getOrElse("")
 
     // Construct a server on `PORT` or 8080 if not provided
     val port    = sys.env.get("PORT").fold(8080)(_.toInt)
@@ -18,8 +20,8 @@ object Main {
     val handler = new ServletHandler()
 
     // Set up our handler
-    handler.addServletWithMapping(classOf[JsonServlet], "/json")
-    handler.addServletWithMapping(classOf[JsonChartServlet], "/jsonchart")
+    handler.addServletWithMapping(new ServletHolder(new JsonServlet(hash)), "/json")
+    handler.addServletWithMapping(new ServletHolder(new JsonChartServlet(hash)), "/jsonchart")
 
     // And start our server
     server.setHandler(handler)

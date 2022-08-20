@@ -24,7 +24,7 @@ This will copy the necessary jars into the local `lib/` directory. This director
 
 ## Running
 
-Once you're set up you can run locally with `sbt run`; or with `bloop run itc-server` if you have bloop set up. There is a sample request in `data.json` so if you're in the project root you can say:
+Once you're set up you can run locally with `sbt run`. There is a sample request in `data.json` so if you're in the project root you can say:
 
     curl http://localhost:8080/json -d @data.json
 

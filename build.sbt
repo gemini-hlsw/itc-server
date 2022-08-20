@@ -14,5 +14,5 @@ libraryDependencies ++= Seq(
   "org.eclipse.jetty" %  "jetty-servlet" % "9.4.48.v20220622"
 )
 
-buildInfoKeys := Seq[BuildInfoKey](name, version, git.gitBaseVersion)
+buildInfoKeys := Seq[BuildInfoKey](name, version, git.gitDescribedVersion)
 buildInfoPackage := "itc"

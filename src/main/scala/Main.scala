@@ -18,6 +18,8 @@ object Main {
     val port    = sys.env.get("PORT").fold(8080)(_.toInt)
     val server  = new Server(port)
     val handler = new ServletHandler()
+    println(BuildInfo)
+    println(hash)
 
     // Set up our handler
     handler.addServletWithMapping(new ServletHolder(new JsonServlet(hash)), "/json")

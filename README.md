@@ -51,10 +51,12 @@ It may so happen that different inputs will ened up traversing into code that's 
 
 ## Deploying
 
-To deploy you need to first be logged into Heroku and also logged into the docker registry. So
+To deploy you need to first be logged into Heroku. So
 
     heroku login
 
+We need to push a relatively large amount of jar files (Around 240mb) which cannot be stored in github due to its size
+Thus we have a `deploy` 
 and then
 
     heroku container:login
@@ -74,4 +76,4 @@ To watch the logs you can say
 The endpoint for the Heroku app is
 
     https://gemini-new-itc.herokuapp.com/
-
+      

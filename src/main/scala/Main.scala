@@ -12,7 +12,7 @@ object Main {
 
     // Let's not connect to the window server
     System.setProperty("java.awt.headless", "true")
-    val hash = BuildInfo.buildInfoBuildNumber.toString
+    val hash = BuildInfo.version.toString
 
     // Construct a server on `PORT` or 8080 if not provided
     val port    = sys.env.get("PORT").fold(8080)(_.toInt)
@@ -21,7 +21,6 @@ object Main {
     Runtime.getRuntime().exec("git tag")
     Runtime.getRuntime().exec("git describe")
     println(BuildInfo)
-    println(hash)
 
     // Set up our handler
     handler.addServletWithMapping(new ServletHolder(new JsonServlet(hash)), "/json")

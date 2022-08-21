@@ -5,6 +5,8 @@ enablePlugins(JavaAppPackaging)
 enablePlugins(BuildInfoPlugin)
 enablePlugins(GitVersioning)
 
+git.useGitDescribe := true
+
 // Project Settings
 name                 := "itc-server"
 scalaVersion         := "2.11.12"

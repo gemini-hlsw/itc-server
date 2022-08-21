@@ -18,6 +18,8 @@ object Main {
     val port    = sys.env.get("PORT").fold(8080)(_.toInt)
     val server  = new Server(port)
     val handler = new ServletHandler()
+    Runtime.getRuntime().exec("git tag")
+    Runtime.getRuntime().exec("git describe")
     println(BuildInfo)
     println(hash)
 

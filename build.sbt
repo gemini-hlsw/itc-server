@@ -7,8 +7,6 @@ enablePlugins(BuildInfoPlugin)
 
 git.useGitDescribe := true
 
-git.useGitDescribe := true
-
 // Project Settings
 name                 := "itc-server"
 scalaVersion         := "2.11.12"
